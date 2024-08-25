@@ -1,0 +1,29 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+      - stg
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.7.0'
+      - name: Build
+        run: npx @cloudflare/next-on-pages@1
+      - name: Deploy
+        id: cloudflare_pages_deploy
+        uses: cloudflare/pages-action@v1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: dawnzlight-client
+          directory: .vercel/output/static
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
