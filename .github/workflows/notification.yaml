@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - stg
-      - main
 jobs:
   command:
     name: Use Actions Status Discord 
