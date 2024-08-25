@@ -1,0 +1,14 @@
+package.json
+package-lock.json
+
+.eslintrc.json
+.prettierrc
+.vscode
+.hygen
+.github
+.hygen.js
+next.config.mjs
+
+README.md
+tsconfig.json
+env.d.ts
