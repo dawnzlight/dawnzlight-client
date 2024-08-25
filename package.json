@@ -1,0 +1,60 @@
+{
+    "name": "dawnzlight-client",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint && prettier --check .",
+        "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+        "pages:build": "npx @cloudflare/next-on-pages",
+        "preview": "npm run pages:build && wrangler pages dev",
+        "deploy": "npm run pages:build && wrangler pages deploy",
+        "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    },
+    "dependencies": {
+        "next": "14.2.5",
+        "react": "^18",
+        "react-dom": "^18"
+    },
+    "devDependencies": {
+        "@chakra-ui/next-js": "^2.2.0",
+        "@chakra-ui/react": "^2.8.2",
+        "@chromatic-com/storybook": "^1.7.0",
+        "@cloudflare/next-on-pages": "^1.13.2",
+        "@cloudflare/workers-types": "^4.20240821.1",
+        "@emotion/react": "^11.13.3",
+        "@emotion/styled": "^11.13.0",
+        "@storybook/addon-essentials": "^8.2.9",
+        "@storybook/addon-interactions": "^8.2.9",
+        "@storybook/addon-links": "^8.2.9",
+        "@storybook/addon-onboarding": "^8.2.9",
+        "@storybook/blocks": "^8.2.9",
+        "@storybook/nextjs": "^8.2.9",
+        "@storybook/react": "^8.2.9",
+        "@storybook/test": "^8.2.9",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "axios": "^1.7.5",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.5",
+        "eslint-plugin-next-on-pages": "^1.13.2",
+        "eslint-plugin-storybook": "^0.8.0",
+        "framer-motion": "^11.3.30",
+        "hygen": "^6.2.11",
+        "jotai": "^2.9.3",
+        "prettier": "^3.3.3",
+        "storybook": "^8.2.9",
+        "typescript": "^5",
+        "vercel": "^37.1.1",
+        "wrangler": "^3.72.2"
+    },
+    "volta": {
+        "node": "22.7.0",
+        "npm": "10.8.2"
+    }
+}
