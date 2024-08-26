@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint && prettier --check .",
-        "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+        "format": "prettier . --write",
         "pages:build": "npx @cloudflare/next-on-pages",
         "preview": "npm run pages:build && wrangler pages dev",
         "deploy": "npm run pages:build && wrangler pages deploy",
