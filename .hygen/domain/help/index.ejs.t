@@ -1,0 +1,4 @@
+---
+message: |
+  - hygen domain new 
+---
