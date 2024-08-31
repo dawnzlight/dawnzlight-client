@@ -1,4 +1,5 @@
-import '@/Styles/globals.css';
+import '@/Styles/global.module.scss';
+import { NOtO_SANS_JP_FONTS } from '../font';
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Provider } from 'jotai';
@@ -6,7 +7,6 @@ import { Provider } from 'jotai';
 import { DefaultSeo } from 'next-seo';
 
 import SEO from '../next-seo.config';
-import Head from 'next/head';
 
 const themeConfig = {
     config: {
@@ -22,7 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <Provider>
             <ChakraProvider theme={extendTheme(theme)}>
                 <DefaultSeo {...SEO} />
-                <Component {...pageProps} />
+                <main className={NOtO_SANS_JP_FONTS.className}>
+                    <Component {...pageProps} />
+                </main>
             </ChakraProvider>
         </Provider>
     );

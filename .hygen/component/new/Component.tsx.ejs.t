@@ -7,7 +7,7 @@ import React, { memo } from "react";
 import React from "react";
 <% } -%>
 <% if (have_style) { -%>
-import {} from '@/components/<%= path %>/module.style';
+import Styled from './style.module.scss';
 <% } -%>
 <% if (have_consts) { -%>
 import {} from './const';
