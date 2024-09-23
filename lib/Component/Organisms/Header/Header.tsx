@@ -7,7 +7,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 
 export const Header: React.FC<Props> = memo((props) => {
     return (
-        <Flex boxShadow={'md'} p={3}>
+        <Flex className={Styled.header} boxShadow={'md'} p={3} bg={'white'}>
             <Text as={'b'} fontSize={'2xl'}>
                 Dawn'z Light
             </Text>

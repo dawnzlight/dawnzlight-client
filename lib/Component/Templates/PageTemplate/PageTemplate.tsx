@@ -6,11 +6,15 @@ import { Props } from './type';
 import { Header } from '@/Component/Organisms/Header';
 import { Footer } from '@/Component/Organisms/Footer';
 
+import { Box } from '@chakra-ui/react';
+
 export const PageTemplate: React.FC<Props> = memo((props) => {
     return (
         <div>
             <Header />
-            <div>{props.children}</div>
+            <Box className={Styled.body} m={5}>
+                {props.children}
+            </Box>
             <Footer />
         </div>
     );
