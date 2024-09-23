@@ -1,0 +1,79 @@
+.card {
+    &:hover {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.card_body {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--chakra-radii-md);
+}
+
+.card_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    transform: translateY(-50%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: inherit;
+}
+
+.card_main {
+    margin-top: 50px;
+    padding-bottom: 1rem;
+}
+
+.card_avator {
+    transition: transform 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card_text {
+    transition: transform 0.5s ease;
+}
+
+.card_sns {
+    position: absolute;
+    bottom: -40;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card_avator {
+    transform: translateY(-40%);
+}
+
+.card:hover .card_text {
+    transform: translateY(-40%);
+}
+
+.card:hover .card_sns {
+    transform: translateY(-100%);
+}
+
+.link {
+    color: gray;
+    border-bottom: rgba($color: #000000, $alpha: 0) 1px solid;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        color: black;
+        border-bottom: rgba($color: #000000, $alpha: 0) 1px solid;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            animation: slide-in 1s forwards;
+        }
+    }
+}
