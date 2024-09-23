@@ -1,4 +1,4 @@
-import '@/Styles/global.module.scss';
+import global from '@/Styles/global.module.scss';
 import { NOtO_SANS_JP_FONTS } from '../font';
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Provider>
             <ChakraProvider theme={extendTheme(theme)}>
                 <DefaultSeo {...SEO} />
-                <main className={NOtO_SANS_JP_FONTS.className}>
+                <main className={NOtO_SANS_JP_FONTS.className} id={global.body}>
                     <Component {...pageProps} />
                 </main>
             </ChakraProvider>

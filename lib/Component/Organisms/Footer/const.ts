@@ -24,12 +24,12 @@ export const CONTENTS = {
     name: 'コンテンツ',
     category: [
         {
-            name: 'ゲーム',
-            link: '/games',
+            name: 'メンバー',
+            link: '/members',
         },
         {
-            name: 'メンバー紹介',
-            link: '/members',
+            name: 'プロジェクト',
+            link: '/projects',
         },
         {
             name: 'テックブログ',
