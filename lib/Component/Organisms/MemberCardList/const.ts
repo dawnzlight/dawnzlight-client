@@ -1,4 +1,6 @@
-export const MEMBER_LIST = [
+import { Props } from '@/Component/Molecules/MemberCard/type';
+
+export const MEMBER_LIST: Props[] = [
     {
         name: 'CoCo9122',
         bg: '/coco9122_background.jpg',

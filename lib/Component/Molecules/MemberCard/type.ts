@@ -1,4 +1,4 @@
-interface Sns {
+export interface Sns {
     category:
         | 'discord'
         | 'facebook'
@@ -10,10 +10,6 @@ interface Sns {
         | 'youtube'
         | 'zenn';
     url: string;
-    size?: number;
-    color?: string;
-    subColor?: string;
-    onClick?: () => void;
 }
 
 export interface Props {
