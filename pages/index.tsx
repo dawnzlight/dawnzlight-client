@@ -1,67 +1,73 @@
 import { NextPage } from 'next';
+import React, { useEffect, useState, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import * as headerAnimationData from '../public/lottie/header-dawnzlight.json';
+import * as keyPhraseAnimationData from '../public/lottie/key-phrase.json';
+import * as openingAnimationData from '../public/lottie/opening.json';
+import { Box, Flex, Text, keyframes } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
-import { PageTemplate } from '@/Component/Templates/PageTemplate';
-import { MemberCardList } from '@/Component/Organisms/MemberCardList';
-
-import { Box, Text } from '@chakra-ui/react';
-import { Grid, GridItem } from '@chakra-ui/react';
+const SampleSketch = dynamic(() => import('@/Component/Atoms/SampleSketch'), { ssr: false });
+const LottieAnimation = dynamic(() => import('@/Component/Atoms/LottieAnimation'), { ssr: false });
 
 const Index: NextPage = () => {
+    const [showMainContent, setShowMainContent] = useState(false);
+
+    const handleAnimationComplete = () => {
+        setShowMainContent(true);
+    };
+
     return (
-        <PageTemplate>
-            <Box p={5} borderRadius={'10px'} bg={'rgba(225,90,40,0.4)'}>
-                <Box pl={5} borderLeft={'5px solid white'}>
-                    <Text color={'white'} fontSize={'4xl'}>
-                        Dawn'z Light
-                    </Text>
-                </Box>
-                <Box mt={2} mb={2}>
-                    <Text color={'white'} fontSize={'xl'}>
-                        ゲームを世に届ける。
-                    </Text>
-                    <Text color={'white'} fontSize={'xl'}>
-                        そんな思いをもとに結成されたチームです。そんなサイトの目的は二つ。
-                    </Text>
-                </Box>
-                <Box mt={5} mb={5}>
-                    <Text color={'white'} fontSize={'2xl'}>
-                        私たちのゲームを届ける
-                    </Text>
-                    <Text color={'white'} fontSize={'2xl'}>
-                        ゲーム作成のノウハウを届ける
-                    </Text>
-                </Box>
-                <Box mt={5} mb={5}>
-                    <Text color={'white'} fontSize={'xl'}>
-                        私たちは作成したゲームだけではなく、ゲームを作ることも楽しんでもらえることを願っています。
-                    </Text>
-                </Box>
-            </Box>
-            <Grid mt={5} templateColumns='repeat(10, 1fr)' gap={6}>
-                <GridItem p={5} borderRadius={'10px'} colSpan={7} bg={'rgba(225,90,40,0.4)'}>
-                    <Box pl={5} borderLeft={'5px solid white'}>
-                        <Text color={'white'} fontSize={'4xl'}>
-                            メンバー
-                        </Text>
+        <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+            {!showMainContent && (
+                // 背景の色を指定
+                <Flex
+                    justifyContent='center'
+                    alignItems='center'
+                    style={{
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: '#202020',
+                    }}
+                >
+                    <LottieAnimation
+                        animationData={openingAnimationData}
+                        width={800}
+                        height={300}
+                        delay={0}
+                        onComplete={handleAnimationComplete}
+                    />
+                </Flex>
+            )}
+            {showMainContent && (
+                <motion.div
+                    initial={{ backgroundColor: 'rgba(32, 32, 32, 1)' }}
+                    animate={{ backgroundColor: 'rgba(32, 32, 32, 0)' }}
+                    transition={{ duration: 5, ease: 'easeInOut' }}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                >
+                    <SampleSketch />
+                    <Box style={{ position: 'relative', zIndex: 1 }} ml={5}>
+                        <LottieAnimation
+                            animationData={headerAnimationData}
+                            width={400}
+                            height={150}
+                            delay={100}
+                        />
+                        <LottieAnimation
+                            animationData={keyPhraseAnimationData}
+                            width={800}
+                            height={400}
+                            delay={2500}
+                        />
                     </Box>
-                    <MemberCardList />
-                </GridItem>
-                <GridItem p={5} borderRadius={'10px'} colSpan={3} bg={'rgba(225,90,40,0.4)'}>
-                    <Box pl={5} borderLeft={'5px solid white'}>
-                        <Text color={'white'} fontSize={'2xl'}>
-                            お知らせ
-                        </Text>
-                    </Box>
-                </GridItem>
-                <GridItem p={5} borderRadius={'10px'} colSpan={7} bg={'rgba(225,90,40,0.4)'}>
-                    <Box pl={5} borderLeft={'5px solid white'}>
-                        <Text color={'white'} fontSize={'4xl'}>
-                            プロジェクト
-                        </Text>
-                    </Box>
-                </GridItem>
-            </Grid>
-        </PageTemplate>
+                </motion.div>
+            )}
+        </div>
     );
 };
 
