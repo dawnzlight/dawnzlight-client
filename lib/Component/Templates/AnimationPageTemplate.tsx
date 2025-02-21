@@ -31,4 +31,6 @@ const AnimationPageTemplate: React.FC<Props> = memo((props) => {
     );
 });
 
+AnimationPageTemplate.displayName = 'AnimationPageTemplate';
+
 export default AnimationPageTemplate;
