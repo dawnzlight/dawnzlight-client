@@ -8,13 +8,23 @@ const config: DefaultSeoProps = {
     title: SITE_NAME,
     titleTemplate: TitleTemplate,
     defaultTitle: SITE_NAME,
-    description: '',
+    description: "Welcome to Dawn'z Light",
     canonical: 'https://dawnzlight.net',
     openGraph: {
         url: 'https://dawnzlight.net',
         title: SITE_NAME,
-        description: '',
+        type: 'website',
+        locale: 'ja_JP',
+        description: "Welcome to Dawn'z Light",
         siteName: SITE_NAME,
+        images: [
+            {
+                url: 'https://dawnzlight.net/dawnzlight-og-image.png',
+                width: 1920,
+                height: 480,
+                alt: SITE_NAME,
+            },
+        ],
     },
 };
 
