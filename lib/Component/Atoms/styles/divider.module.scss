@@ -1,0 +1,26 @@
+.diagonal_divider {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+}
+
+.diagonal_divider::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white; /* Adjust the color as needed */
+    transform: rotate(10deg);
+    transform-origin: left;
+    animation: draw-line 2s forwards;
+}
+
+@keyframes draw-line {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}

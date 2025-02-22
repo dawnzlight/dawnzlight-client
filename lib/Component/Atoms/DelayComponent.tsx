@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './styles/fade.module.scss';
 
 interface DelayComponentProps {
     delay: number;
@@ -16,7 +17,7 @@ const DelayComponent: React.FC<DelayComponentProps> = ({ delay, children }) => {
         return () => clearTimeout(timer);
     }, [delay]);
 
-    return <>{show ? children : null}</>;
+    return <div className={`${styles.fade_in} ${show ? styles.show : ''}`}>{children}</div>;
 };
 
 export default DelayComponent;

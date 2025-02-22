@@ -1,0 +1,17 @@
+.triangle {
+    margin-top: 30px;
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid transparent;
+    border-left: 850.5px solid #007bff70;
+    // transform: rotate(deg);
+    position: absolute;
+}
+
+.body {
+    padding-top: 60px;
+    padding-left: 20px;
+    margin-bottom: 60px;
+    height: 300px;
+    position: relative;
+    color: white;
+}
